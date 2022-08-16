@@ -94,13 +94,18 @@ db.bounties.find({reward : {$gt : 10000}})
 db.bounties.find({client: "Red wolf"}, {capture:0})
 
 // 4. Query for a Groundhog in the Woodlands
-db.bounties.find(
+db.bounties.find({
+  species : "Groundhog",
+  location : "Woodlands",
+})
 
 // Update and Delete
 // 1. Update the reward for Polarwind to 10000
 
 // 2. Remove Lokinkajou
-
+db.bounties.deleteOne({species: "Kinkajou"})
 // 3. Delete all bounties sent by Songbird
-
+db.bounties.deleteMany({
+  client : "Songbird"
+})
 // 4. Update all captured statuses to true
